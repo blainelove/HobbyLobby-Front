@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, {useEffect, useState} from "react"
+import HobbiesContainer from "./HobbiesContainer"
+import User from "./User"
+import AddHobbies from "./AddHobbies"
 
 function App() {
+  const [users, setUsers] = useState([])
+  console.log(users)
+  useEffect(() => {
+    fetch("http://localhost:3000/users/1")
+    .then((r)=> r.json ())
+    .then(userArray => {
+      setUsers(userArray)
+    })
+     
+    
+   }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello</h1>
+      <HobbiesContainer/>
+      <User/>
+      <AddHobbies/>
     </div>
   );
 }
