@@ -7,9 +7,9 @@ import AddHobbies from "./AddHobbies"
 
 function App() {
   const [users, setUsers] = useState([])
-  console.log(users)
+
   useEffect(() => {
-    fetch("http://localhost:3000/users/1")
+    fetch("http://localhost:3000/users")
     .then((r)=> r.json ())
     .then(userArray => {
       setUsers(userArray)
@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <h1>Hello</h1>
       <HobbiesContainer/>
-      <User/>
+      <User users ={users}/>
       <AddHobbies/>
     </div>
   );
