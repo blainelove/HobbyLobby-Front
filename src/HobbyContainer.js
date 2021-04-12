@@ -3,12 +3,12 @@ import Hobby from "./Hobby"
 
 
 
-const HobbyContainer = ({hobbies}) => {
+const HobbyContainer = ({hobbies, delHobby}) => {
     
     console.log(hobbies)
     
     const displayHobbies = hobbies.map((hobby) => {
-       return<Hobby hobby={hobby}/>
+       return<Hobby hobby={hobby} delHobby ={delHobby}/>
     })
    
    

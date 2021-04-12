@@ -26,13 +26,25 @@ function App() {
     user.hobbies = [...user.hobbies, hobby]
     allUsers = [...allUsers, user]
     setUsers(allUsers)
+ }
 
+ function delHobby(hobby) {
+  const hobbyId = hobby.id
+  const userId = hobby.user_id 
+  let user = [...users].filter(use => use.id === userId)[0]
+  
+  let allUsers = [...users].filter(use => use.id !== userId)
+  
+  user.hobbies=user.hobbies.filter(hobby => hobby.id !== hobbyId)
+  
+  allUsers = [...allUsers, user]//.sort()
+  setUsers(allUsers) 
  }
 
   return (
     <div className="App">
       <h1>Hello</h1>
-      <Container users = {users} addHobby={addHobby}/>
+      <Container users = {users} addHobby={addHobby} delHobby={delHobby}/>
       <User users={users} setUsers={setUsers}/>
       <AddHobbies addHobby={addHobby}/>
     </div>
