@@ -3,22 +3,35 @@ import Favorites from "./Favorites"
 import HobbyContainer from "./HobbyContainer"
 
 
-const Container = ({users, delHobby}) => {
+const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought}) => {
     
+    function delHobby(id) {
+        const byeHobby = hobbies.filter((hobby) => hobby.id !== id)
+        setHobbies(byeHobby)
+    }
+    function updateHobby(upid) {
+        const allHobbies = hobbies.map((hobb) => {
+          if (hobb.id === upid.id){
+              return upid
+          }
+          else{
+              return hobb
+          }
+        })
+        setHobbies(allHobbies)
+    }
     
-    const displayHobbies = users.map((user)=> {
-        return <HobbyContainer key= {user.id} hobbies={user.hobbies} delHobby = {delHobby}/>
+    const displayHobbies = hobbies.map((hobby)=> {
+        return <HobbyContainer key= {hobby.id} hobby={hobby} delHobby={delHobby} updateHobby={updateHobby} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate}/>
     })
-    const displayFavorites = users.map((user)=> {
-        return <Favorites key={user.id} favoirites={user.favorites}/>
-    })
+    
 
     
 
 
     return (
         <div>
-            {displayFavorites}
+           
             {displayHobbies}
             
         </div>

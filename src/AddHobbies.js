@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const AddHobbies = ({addHobby}) => {
+const AddHobbies = ({setHobbies}) => {
     const[newHobby, setNewHobby] = useState({
         name:"",
         description:"",
@@ -30,7 +30,7 @@ const AddHobbies = ({addHobby}) => {
                 body: JSON.stringify(newHobby)
             })
             .then((r) => r.json())
-            .then((newObject) => addHobby(newObject))
+            .then((newObject) => setHobbies((hobbies) => [...hobbies, newObject]))
         }
 
     return (
@@ -56,6 +56,7 @@ const AddHobbies = ({addHobby}) => {
         value={newHobby.image}
         onChange={handleChange}
       ></input>
+    
       <button typ="submit">submit</button>
     </form>  
     )

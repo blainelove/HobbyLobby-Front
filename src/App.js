@@ -2,53 +2,74 @@
 import './App.css';
 import React, {useEffect, useState} from "react"
 import Container from "./Container"
-import User from "./User"
+import AddThoughts from "./AddThoughts"
 import AddHobbies from "./AddHobbies"
 
 function App() {
-  const [users, setUsers] = useState([])
+  const [hobbies, setHobbies] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch("http://localhost:3000/hobbies")
     .then((r)=> r.json ())
-    .then(userArray => {
-      setUsers(userArray)
+    .then(hobbiesArray => {
+      setHobbies(hobbiesArray)
     })
      
     
    }, [])
 
-   function addHobby(hobby){
-    const userId = hobby.user_id
-    let user = [...users].filter(user => user.id === userId)[0]
-    let allUsers = [...users].filter(user=> user.id !== userId)
+   function addThought(thought){
+    const hobbyId = thought.hobby_id
+    let hobby = [...hobbies].filter(hobby => hobby.id === hobbyId)[0]
+    let allHobbies = [...hobbies].filter(hobby=> hobby.id !== hobbyId)
 
-    user.hobbies = [...user.hobbies, hobby]
-    allUsers = [...allUsers, user]
-    setUsers(allUsers)
+    hobby.thoughts = [...hobby.thoughts, thought]
+    allHobbies = [...allHobbies, hobby]
+    setHobbies(allHobbies)
  }
 
- function delHobby(hobby) {
-  const hobbyId = hobby.id
-  const userId = hobby.user_id 
-  let user = [...users].filter(use => use.id === userId)[0]
+ function delThought(thought) {
+  const thoughtId = thought.id
+  const hobbyId = thought.hobby_id 
+  let hobby = [...hobbies].filter(hobb => hobb.id === hobbyId)[0]
   
-  let allUsers = [...users].filter(use => use.id !== userId)
+  let allHobbies = [...hobbies].filter(hobb => hobb.id !== hobbyId)
   
-  user.hobbies=user.hobbies.filter(hobby => hobby.id !== hobbyId)
+  hobby.thoughts=hobby.thoughts.filter(thought => thought.id !== thoughtId)
   
-  allUsers = [...allUsers, user]//.sort()
-  setUsers(allUsers) 
+  allHobbies = [...allHobbies, hobby]//.sort()
+  setHobbies(allHobbies) 
  }
 
+ function handleUpdate(update) {
+  const allHobbies = hobbies.map((hobby)=>{
+      if (hobby.id === update.user_id){
+          return{
+              ...hobby, thoughts: hobby.thoughts.map((thought) => {
+                  if (thought.id === update.id){
+                      return update
+                  }
+                  else{
+                      return thought
+                  }
+              })
+          }
+      }
+      else{
+          return hobby
+      }
+  })
+  setHobbies(allHobbies)
+}
   return (
     <div className="App">
       <h1>Hello</h1>
-      <Container users = {users} addHobby={addHobby} delHobby={delHobby}/>
-      <User users={users} setUsers={setUsers}/>
-      <AddHobbies addHobby={addHobby}/>
+      <Container  hobbies ={hobbies} setHobbies={setHobbies} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate}/>
+      <AddThoughts addThought={addThought} hobbies={hobbies}/>
+      <AddHobbies setHobbies= {setHobbies}/>
     </div>
   );
 }
 
 export default App;
+// addHobby={addHobby} delHobby={delHobby} handleUpdate={handleUpdate}
