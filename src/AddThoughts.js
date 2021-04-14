@@ -11,6 +11,9 @@ const AddThoughts = ({addThought, hobbies}) => {
     let ggggHobbies = hobbies.map((hppp) => {
         return <option value={hppp.id}> {hppp.name}</option>
     })
+    let hob = hobbies.map((h)=> {
+        return h.id
+    })
         function handleChange(e){
             const key = e.target.name
             const value  = e.target.value
@@ -55,8 +58,7 @@ const AddThoughts = ({addThought, hobbies}) => {
       <select
       value={newThought.hobby_id}
         onChange={handleChange}
-        name="channel_id" 
-        
+        name="hobby_id" 
         >
       {ggggHobbies}
       </select>

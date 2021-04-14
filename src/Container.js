@@ -3,8 +3,18 @@ import Favorites from "./Favorites"
 import HobbyContainer from "./HobbyContainer"
 
 
-const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought}) => {
-    
+const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought, user}) => {
+    const [displayUser, setDisplayUser] = useState(false)
+    function handleUser(hobby){
+        console.log(hobby)
+        if (user === hobby.user_id){
+            (setDisplayUser(!displayUser))
+            return(displayUser)
+        }
+        else{
+            return (displayUser)
+        }
+    }      
     function delHobby(id) {
         const byeHobby = hobbies.filter((hobby) => hobby.id !== id)
         setHobbies(byeHobby)
@@ -22,7 +32,7 @@ const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought})
     }
     
     const displayHobbies = hobbies.map((hobby)=> {
-        return <HobbyContainer key= {hobby.id} hobby={hobby} delHobby={delHobby} updateHobby={updateHobby} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate}/>
+        return <HobbyContainer key= {hobby.id} hobby={hobby} delHobby={delHobby} updateHobby={updateHobby} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user} handleUser={handleUser} displayUser={displayUser}/>
     })
     
 

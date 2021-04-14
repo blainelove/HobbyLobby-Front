@@ -7,7 +7,8 @@ import AddHobbies from "./AddHobbies"
 
 function App() {
   const [hobbies, setHobbies] = useState([])
-
+  const [user, setUser] = useState(1)
+  
   useEffect(() => {
     fetch("http://localhost:3000/hobbies")
     .then((r)=> r.json ())
@@ -15,7 +16,6 @@ function App() {
       setHobbies(hobbiesArray)
     })
      
-    
    }, [])
 
    function addThought(thought){
@@ -43,7 +43,7 @@ function App() {
 
  function handleUpdate(update) {
   const allHobbies = hobbies.map((hobby)=>{
-      if (hobby.id === update.user_id){
+      if (hobby.id === update.hobby_id){
           return{
               ...hobby, thoughts: hobby.thoughts.map((thought) => {
                   if (thought.id === update.id){
@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello</h1>
-      <Container  hobbies ={hobbies} setHobbies={setHobbies} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate}/>
+      <Container  hobbies ={hobbies} setHobbies={setHobbies} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user}/>
       <AddThoughts addThought={addThought} hobbies={hobbies}/>
       <AddHobbies setHobbies= {setHobbies}/>
     </div>

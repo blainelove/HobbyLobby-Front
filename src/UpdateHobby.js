@@ -3,10 +3,10 @@ import React, {useState} from 'react'
 
 
 const UpdateHobby = ({updateHobby, hobby}) => {
-    const[updateName, setUpdateName] = useState('')
+    const[updateName, setUpdateName] = useState(hobby.name)
     const [reset, setReset] = useState('')
-    const [updateDescription, setUpdateDescription] = useState('')
-    const[updateImage, setUpdateImage] = useState('')
+    const [updateDescription, setUpdateDescription] = useState(hobby.description)
+    const[updateImage, setUpdateImage] = useState(hobby.image)
     
     function handleChange(e){
         const name = e.target.value

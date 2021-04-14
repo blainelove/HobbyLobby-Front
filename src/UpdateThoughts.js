@@ -3,8 +3,8 @@ import React, {useState} from 'react'
 const UpdateThoughts = ({thought, handleUpdate}) => {
     
     const [reset, setReset] = useState('')
-    const [updateDescription, setUpdateDescription] = useState('')
-    const[updateImage, setUpdateImage] = useState('')
+    const [updateDescription, setUpdateDescription] = useState(thought.description)
+    const[updateImage, setUpdateImage] = useState(thought.image)
     
     
     

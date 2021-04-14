@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import AddThoughts from './AddThoughts'
 import UpdateThoughts from './UpdateThoughts'
 
-const Thoughts = ({thought, addThought, delThought, handleUpdate}) => {
-    
+const Thoughts = ({thought, addThought, delThought, handleUpdate, user}) => {
+    const isUser = thought.user_id === user
     function handleDeleteClick(){
         fetch(`http://localhost:3000/thoughts/${thought.id}`, {
             method: "DELETE",
@@ -17,7 +17,7 @@ const Thoughts = ({thought, addThought, delThought, handleUpdate}) => {
             <img src={thought.image} alt={thought.description}></img>
             <p>{thought.likes}</p>
             <UpdateThoughts thought={thought} handleUpdate={handleUpdate}/>
-            <button onClick={handleDeleteClick}>Delete</button>
+            {(isUser) && <button onClick={handleDeleteClick}>Delete</button>}
             
 
         </div>

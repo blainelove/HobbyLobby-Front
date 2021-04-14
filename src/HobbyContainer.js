@@ -3,14 +3,19 @@ import Thoughts from "./Thoughts"
 import UpdateHobby from "./UpdateHobby"
 
 
-const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThought}) => {
-    console.log(hobby)
+const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThought, displayUser, handleUser, user}) => {
+    
     const[display, setDisplay] = useState(false)
     const [displayForm, setDisplayForm] = useState(false)
-    
+    const isUser = hobby.user_id === user
+    console.log(isUser, "Hi")
     const thoughts = hobby.thoughts.map((thought) => {
-        return <Thoughts key= {thought.id} thought= {thought} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate}/>
-    })      
+        return <Thoughts key= {thought.id} thought= {thought} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user}/>
+    })
+    
+
+ 
+    
 
     function handleClick(){
         setDisplay(!display)
@@ -27,12 +32,13 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
     }
     return (
         <div>
-           
+        
         <h1>{hobby.name}</h1>
        
         <h3>{hobby.description}</h3>
         <img src={hobby.image} ></img>
         <div>
+            
             {display ? (
             <button onClick={handleClick}>Hide Thoughts  </button>
             ) : (
@@ -40,17 +46,20 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
             )}
             {(display) && (thoughts)}
             <div>
-            {displayForm ? (
+            
+            {(isUser) && (displayForm) ? (
             <button onClick={handleFormToogle} >Hide Form</button>
             ) : (
             <button onClick={handleFormToogle} >Update Hobby</button>
             )}
-
-            {(displayForm) && <UpdateHobby handleUpdate={handleUpdate} hobby={hobby} updateHobby={updateHobby}/>}
+          
+          
+            {(isUser) && (displayForm) && <UpdateHobby handleUpdate={handleUpdate} hobby={hobby} updateHobby={updateHobby}/>}
             </div>
             
         </div>
-        <button onClick={handleDeleteClick}>Delete</button>
+       {(isUser) && <button onClick={handleDeleteClick}>Delete</button>}
+        
         
     </div>
     )
