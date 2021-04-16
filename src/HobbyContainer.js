@@ -8,7 +8,7 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
     const[display, setDisplay] = useState(false)
     const [displayForm, setDisplayForm] = useState(false)
     const isUser = hobby.user_id === user
-    console.log(isUser, "Hi")
+    
     const thoughts = hobby.thoughts.map((thought) => {
         return <Thoughts key= {thought.id} thought= {thought} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user}/>
     })

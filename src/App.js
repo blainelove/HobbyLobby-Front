@@ -63,7 +63,7 @@ function App() {
 }
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <h1>Hobby Lobby</h1>
       <Container  hobbies ={hobbies} setHobbies={setHobbies} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user}/>
       <AddThoughts addThought={addThought} hobbies={hobbies}/>
       <AddHobbies setHobbies= {setHobbies}/>

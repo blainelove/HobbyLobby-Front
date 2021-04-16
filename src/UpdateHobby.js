@@ -45,6 +45,7 @@ const UpdateHobby = ({updateHobby, hobby}) => {
 
     return (
         <form onSubmit={handleTheUpdate} onReset={resetForm}>
+       
         <input
       
           type="text"

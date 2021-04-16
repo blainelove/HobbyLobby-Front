@@ -1,12 +1,16 @@
 import React, {useState} from 'react'
 
-const UpdateThoughts = ({thought, handleUpdate}) => {
-    
+const UpdateThoughts = ({thought, handleUpdate, user}) => {
+    const isUser = thought.user_id === user
     const [reset, setReset] = useState('')
     const [updateDescription, setUpdateDescription] = useState(thought.description)
     const[updateImage, setUpdateImage] = useState(thought.image)
+    const[likes, setLikes] = useState(thought.likes)
     
     
+      function handleLikes(){
+        setLikes(likes + 1)
+     }
     
       function changeDescription(e) {
         const description = e.target.value
@@ -23,6 +27,7 @@ const UpdateThoughts = ({thought, handleUpdate}) => {
       function resetForm(){
         setReset(reset = '')
       }
+      
 
       function handleAUpdate(e) {
           e.preventDefault()
@@ -30,7 +35,7 @@ const UpdateThoughts = ({thought, handleUpdate}) => {
           fetch(`http://localhost:3000/thoughts/${thought.id}`, {
               method: "PATCH",
               headers: {"content-type": "application/json"},
-              body: JSON.stringify({description: updateDescription, image: updateImage})
+              body: JSON.stringify({description: updateDescription, image: updateImage, likes: likes})
           })
           .then((r)=> r.json())
           .then((update)=> {
@@ -40,8 +45,10 @@ const UpdateThoughts = ({thought, handleUpdate}) => {
 
     return (
         <form onSubmit={handleAUpdate} onReset={resetForm}>
-    
-        <input
+        <div>
+        <button onClick={handleLikes}> {likes} likes </button>
+        </div>
+        {(isUser) &&< input
       
           type="text"
           name="description"
@@ -50,9 +57,9 @@ const UpdateThoughts = ({thought, handleUpdate}) => {
           onChange={changeDescription}
          
         >
-        </input>
+        </input>}
 
-        <input
+        {(isUser) &&<input
       
           type="text"
           name="image"
@@ -61,7 +68,7 @@ const UpdateThoughts = ({thought, handleUpdate}) => {
           onChange={changeImage}
          
         >
-        </input>
+        </input>}
 
         <button type='submit'>Update</button>
      </form>
