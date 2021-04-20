@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 
 
-const UpdateHobby = ({updateHobby, hobby}) => {
+const UpdateHobby = ({updateHobby, hobby, mystyle}) => {
     const[updateName, setUpdateName] = useState(hobby.name)
     const [reset, setReset] = useState('')
     const [updateDescription, setUpdateDescription] = useState(hobby.description)
@@ -79,7 +79,7 @@ const UpdateHobby = ({updateHobby, hobby}) => {
         >
         </input>
 
-        <button type='submit'>Update</button>
+        <button style={mystyle} type='submit'>Update</button>
      </form>
     )
 }

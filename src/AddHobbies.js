@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const AddHobbies = ({setHobbies}) => {
+const AddHobbies = ({setHobbies, mystyle}) => {
     const[newHobby, setNewHobby] = useState({
         name:"",
         description:"",
@@ -57,7 +57,7 @@ const AddHobbies = ({setHobbies}) => {
         onChange={handleChange}
       ></input>
     
-      <button typ="submit">submit</button>
+      <button style={mystyle} type="submit">submit</button>
     </form>  
     )
 }

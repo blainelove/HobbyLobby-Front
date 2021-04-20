@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const UpdateThoughts = ({thought, handleUpdate, user}) => {
+const UpdateThoughts = ({thought, handleUpdate, user, thoughtstyle, mystyle}) => {
     const isUser = thought.user_id === user
     const [reset, setReset] = useState('')
     const [updateDescription, setUpdateDescription] = useState(thought.description)
@@ -46,7 +46,7 @@ const UpdateThoughts = ({thought, handleUpdate, user}) => {
     return (
         <form onSubmit={handleAUpdate} onReset={resetForm}>
         <div>
-        <button onClick={handleLikes}> {likes} likes </button>
+        <button style ={mystyle} onClick={handleLikes}> {likes} likes </button>
         </div>
         {(isUser) &&< input
       
@@ -70,7 +70,7 @@ const UpdateThoughts = ({thought, handleUpdate, user}) => {
         >
         </input>}
 
-        <button type='submit'>Update</button>
+        <button style={mystyle} type='submit'>Update</button>
      </form>
     )
 }

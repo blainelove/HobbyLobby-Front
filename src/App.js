@@ -1,9 +1,11 @@
 
 import './App.css';
 import React, {useEffect, useState} from "react"
+import {Switch, Route, BrowserRouter, NavLink} from "react-router-dom"
 import Container from "./Container"
 import AddThoughts from "./AddThoughts"
 import AddHobbies from "./AddHobbies"
+import HobbyContainer from "./HobbyContainer"
 
 function App() {
   const [hobbies, setHobbies] = useState([])
@@ -40,7 +42,20 @@ function App() {
   allHobbies = [...allHobbies, hobby]//.sort()
   setHobbies(allHobbies) 
  }
-
+ const mystyle = {
+  color: "white",
+  backgroundColor: "Orange",
+  padding: "10px",
+  fontFamily: "Arial",
+  textAlign: "center"
+};
+const titleStyle = {
+  color: "white",
+  backgroundColor: "Orange",
+  padding: "10px",
+  fontFamily: "Arial",
+  textAlign: "left"
+};
  function handleUpdate(update) {
   const allHobbies = hobbies.map((hobby)=>{
       if (hobby.id === update.hobby_id){
@@ -62,12 +77,37 @@ function App() {
   setHobbies(allHobbies)
 }
   return (
+    <BrowserRouter>
     <div className="App">
-      <h1>Hobby Lobby</h1>
-      <Container  hobbies ={hobbies} setHobbies={setHobbies} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user}/>
-      <AddThoughts addThought={addThought} hobbies={hobbies}/>
-      <AddHobbies setHobbies= {setHobbies}/>
+      <h1 style={titleStyle} >Hobby Lobby</h1>
+      <div>
+      
+      </div>
+      <div>
+      <NavLink style={mystyle}className="button" to="/container">All Hobbies
+      </NavLink><NavLink style={mystyle} className="button" to="/addthought">Add Thought
+      </NavLink><NavLink style={mystyle} className="button" to="/addhobbies">Add Hobby
+      </NavLink>
+      </div>
+      <div>
+      
+      </div>
+      
+      <Switch>
+      <Route exact path="/container">
+          <Container  hobbies ={hobbies} setHobbies={setHobbies} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user} mystyle={mystyle}/>
+        </Route>
+        <Route path="/addthought">
+          <AddThoughts addThought={addThought} hobbies={hobbies} mystyle={mystyle}/>
+        </Route>
+        <Route path="/addhobbies">
+          <AddHobbies setHobbies= {setHobbies} mystyle={mystyle}/>
+        </Route>
+      
+      </Switch>
+      
     </div>
+    </BrowserRouter>
   );
 }
 

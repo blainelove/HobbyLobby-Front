@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const AddThoughts = ({addThought, hobbies}) => {
+const AddThoughts = ({addThought, hobbies, mystyle}) => {
     const[newThought, setNewThought] = useState({
         description:"",
         image:"",
@@ -63,7 +63,7 @@ const AddThoughts = ({addThought, hobbies}) => {
       {ggggHobbies}
       </select>
     
-      <button typ="submit">submit</button>
+      <button style={mystyle} type="submit">submit</button>
     </form>  
     )
 }

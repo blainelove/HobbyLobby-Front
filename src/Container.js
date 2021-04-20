@@ -3,7 +3,7 @@ import Favorites from "./Favorites"
 import HobbyContainer from "./HobbyContainer"
 
 
-const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought, user}) => {
+const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought, user, mystyle}) => {
     const [displayUser, setDisplayUser] = useState(false)
     function handleUser(hobby){
         console.log(hobby)
@@ -32,7 +32,7 @@ const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought, 
     }
     
     const displayHobbies = hobbies.map((hobby)=> {
-        return <HobbyContainer key= {hobby.id} hobby={hobby} delHobby={delHobby} updateHobby={updateHobby} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user} handleUser={handleUser} displayUser={displayUser}/>
+        return <HobbyContainer key= {hobby.id} hobby={hobby} delHobby={delHobby} updateHobby={updateHobby} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user} handleUser={handleUser} displayUser={displayUser} mystyle={mystyle}/>
     })
     
 
