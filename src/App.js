@@ -56,6 +56,9 @@ const titleStyle = {
   fontFamily: "Arial",
   textAlign: "left"
 };
+const formStyle = {
+  padding: "60px"
+}
  function handleUpdate(update) {
   const allHobbies = hobbies.map((hobby)=>{
       if (hobby.id === update.hobby_id){
@@ -98,11 +101,21 @@ const titleStyle = {
           <Container  hobbies ={hobbies} setHobbies={setHobbies} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user} mystyle={mystyle}/>
         </Route>
         <Route path="/addthought">
+          <div style = {formStyle}>
+            <h2>Add Your Thoughts</h2>
           <AddThoughts addThought={addThought} hobbies={hobbies} mystyle={mystyle}/>
+          </div>
         </Route>
         <Route path="/addhobbies">
+        <div style = {formStyle}>
+          <h2>Add Your Hobbies</h2>
           <AddHobbies setHobbies= {setHobbies} mystyle={mystyle}/>
+        </div>
         </Route>
+        <Route exact path="/container/:id">
+          
+        </Route>
+        
       
       </Switch>
       

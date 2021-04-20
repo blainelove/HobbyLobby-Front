@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import Favorites from "./Favorites"
 import HobbyContainer from "./HobbyContainer"
+import {Switch, Route, BrowserRouter, NavLink} from "react-router-dom"
 
 
 const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought, user, mystyle}) => {
@@ -43,6 +44,7 @@ const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought, 
         <div>
            
             {displayHobbies}
+            
             
         </div>
     )

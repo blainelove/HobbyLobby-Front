@@ -39,9 +39,10 @@ const AddThoughts = ({addThought, hobbies, mystyle}) => {
         }
 
     return (
-    <form onSubmit={handleSubmit}>
+        
+        <form onSubmit={handleSubmit}>
       
-      <input
+        <input
         type="text"
         name="description"
         placeholder="description"
@@ -64,7 +65,9 @@ const AddThoughts = ({addThought, hobbies, mystyle}) => {
       </select>
     
       <button style={mystyle} type="submit">submit</button>
-    </form>  
+       
+        </form>  
+        
     )
 }
 
