@@ -5,7 +5,7 @@ import {Switch, Route, BrowserRouter, NavLink} from "react-router-dom"
 import Container from "./Container"
 import AddThoughts from "./AddThoughts"
 import AddHobbies from "./AddHobbies"
-import HobbyContainer from "./HobbyContainer"
+import HobbyPage from "./HobbyPage"
 
 function App() {
   const [hobbies, setHobbies] = useState([])
@@ -113,7 +113,7 @@ const formStyle = {
         </div>
         </Route>
         <Route exact path="/container/:id">
-          
+          <HobbyPage hobbies={hobbies} user={user} mystyle={mystyle} />
         </Route>
         
       

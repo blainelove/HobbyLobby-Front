@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import AddThoughts from './AddThoughts'
+
 import UpdateThoughts from './UpdateThoughts'
 
 const Thoughts = ({thought, addThought, delThought, handleUpdate, user, mystyle, titleStyle}) => {

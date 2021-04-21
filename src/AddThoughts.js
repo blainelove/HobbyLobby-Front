@@ -4,7 +4,7 @@ const AddThoughts = ({addThought, hobbies, mystyle}) => {
     const[newThought, setNewThought] = useState({
         description:"",
         image:"",
-        likes:1,
+        likes:0,
         user_id:1,
         hobby_id:1
     })

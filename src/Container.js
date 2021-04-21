@@ -37,13 +37,12 @@ const Container = ({ handleUpdate, hobbies, setHobbies, addThought, delThought, 
     })
     
 
-    
-
 
     return (
         <div>
            
             {displayHobbies}
+            
             
             
         </div>

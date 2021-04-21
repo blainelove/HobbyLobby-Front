@@ -13,7 +13,7 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
         color: "white",
         fontFamily: "Bariol",
     }
-    
+
     const thoughts = hobby.thoughts.map((thought) => {
         return <Thoughts key= {thought.id} thought= {thought} addThought={addThought} delThought={delThought} handleUpdate={handleUpdate} user={user} titleStyle={titleStyle}/>
     })
@@ -32,12 +32,12 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
     
     
 
-    function handleClick(){
-        setDisplay(!display)
-    }
-    function handleFormToogle(){
-        setDisplayForm(!displayForm)
-   }
+function handleClick(){
+    setDisplay(!display)
+}
+function handleFormToogle(){
+    setDisplayForm(!displayForm)
+}
     function handleDeleteClick(){
         fetch(`http://localhost:3000/hobbies/${hobby.id}`, {
             method: "DELETE",
