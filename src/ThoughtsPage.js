@@ -28,7 +28,7 @@ const ThoughtsPage = ({thought}) => {
             <h2 style={titleStyle}>{thought.description}</h2>
             <img src={thought.image} alt={thought.description}></img>
             <div>
-            <button onClick={handleLikes}>{likes}likes</button>
+            <button onClick={handleLikes}>{likes} likes</button>
             </div>
             
         </div>
