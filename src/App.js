@@ -43,18 +43,22 @@ function App() {
   setHobbies(allHobbies) 
  }
  const mystyle = {
-  color: "white",
-  backgroundColor: "Orange",
+  color: "Black",
+  backgroundColor: "emrald",
   padding: "10px",
-  fontFamily: "Arial",
-  textAlign: "center"
+  fontFamily: "Georgia",
+  textAlign: "center",
+  borderRadius: "15px",
+  borderollapse: "separate",
+  marginRight: "20px"
 };
 const titleStyle = {
-  color: "white",
-  backgroundColor: "Orange",
-  padding: "10px",
-  fontFamily: "Arial",
-  textAlign: "left"
+  color: "Black",
+  backgroundColor: "AntiqueWhite",
+  padding: "50px",
+  fontFamily: "Lucida Handwriting",
+  textAlign: "center"
+
 };
 const formStyle = {
   padding: "60px"
@@ -81,16 +85,38 @@ const formStyle = {
 }
   return (
     <BrowserRouter>
-    <div className="App">
+    <div  className="App">
+      
       <h1 style={titleStyle} >Hobby Lobby</h1>
+      <div backgroundColor="gold" padding="10px">
+      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRU82CREucDD3h9JGYWkd192lAWsHgD8TGPA&usqp=CAU"align="Center"></img>
+      </div>
+      <div margin="10px" >
+      <NavLink to="/container" padding="10px">
+       
+        <button type="button" btn class="btn-outline-primary" border-radius="12px"  style={mystyle}>
+          All Hobbies
+        </button>
+       
+      </NavLink>
+      <NavLink to="/addthought" padding="10px">
+      
+        <button type="button" btn class="btn-outline-primary"color='orange'style={mystyle}>
+          Add Thoughts
+        </button>
+        
+      </NavLink>
+      <NavLink to="/addhobbies">
+        <button type="button" btn class="btn-outline-primary"color='orange'style={mystyle}>
+          Add Hobby
+        </button>
+      </NavLink>
+      </div>
+      
       <div>
       
-      </div>
-      <div>
-      <NavLink style={mystyle}className="button" to="/container">All Hobbies
-      </NavLink><NavLink style={mystyle} className="button" to="/addthought">Add Thought
-      </NavLink><NavLink style={mystyle} className="button" to="/addhobbies">Add Hobby
-      </NavLink>
+    
+      
       </div>
       <div>
       

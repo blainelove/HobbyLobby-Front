@@ -10,7 +10,7 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
     const [displayForm, setDisplayForm] = useState(false)
     const isUser = hobby.user_id === user
     const titleStyle ={
-        color: "white",
+        color: "Black",
         fontFamily: "Bariol",
     }
 
@@ -20,7 +20,7 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
     
 
    const contentContainer = {
-    backgroundColor: "grey",
+    backgroundColor: "AntiqueWhite",
     border: "15px solid #A9A9A9",
     gridColumnStart: 1,
     gridRowStart: 1,
@@ -54,22 +54,22 @@ function handleFormToogle(){
         <h2 style={titleStyle}>{hobby.description}</h2>
         <img src={hobby.image} ></img>
         <p>
-            <Link style={mystyle}to= {link}>Show Page</Link>
+            <Link class="btn btn-outline-primary"style={mystyle}to= {link}>Show Page</Link>
         </p>
         <div>
             
             {display ? (
-            <button style={mystyle} onClick={handleClick}>Hide Thoughts  </button>
+            <button class="btn btn-outline-primary"style={mystyle} onClick={handleClick}>Hide Thoughts  </button>
             ) : (
-            <button style={mystyle} onClick={handleClick} >Show Thoughts</button>
+            <button class="btn btn-outline-primary"style={mystyle} onClick={handleClick} >Show Thoughts</button>
             )}
             {(display) && (thoughts)}
             <div>
             
             {(isUser) && (displayForm) ? (
-            <button style={mystyle} onClick={handleFormToogle} >Hide Form</button>
+            <button class="btn btn-outline-primary"style={mystyle} onClick={handleFormToogle} >Hide Form</button>
             ) : (
-            <button style={mystyle} onClick={handleFormToogle} >Update Hobby</button>
+            <button class="bbtn btn-outline-primary" style={mystyle}onClick={handleFormToogle} >Update Hobby</button>
             )}
           
           
@@ -77,7 +77,7 @@ function handleFormToogle(){
             </div>
             
         </div>
-       {(isUser) && <button style={mystyle}onClick={handleDeleteClick}>Delete</button>}
+       {(isUser) && <button class="bbtn btn-outline-primary"style={mystyle} onClick={handleDeleteClick}>Delete</button>}
         
         
     </div>

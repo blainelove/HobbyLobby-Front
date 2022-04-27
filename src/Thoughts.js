@@ -6,20 +6,20 @@ const Thoughts = ({thought, addThought, delThought, handleUpdate, user, mystyle,
     const isUser = thought.user_id === user
     
     const thoughtstyle = {
-        color: "white",
+        color: "black",
         backgroundColor: "red",
         padding: "10px",
         fontFamily: "Arial",
         textAlign: "center"
       };
       const thoughtContainer = {
-        backgroundColor: "silver",
+        backgroundColor: "white",
         border: "1px solid #A9A9A9",
         gridColumnStart: 1,
         gridRowStart: 1,
         display: "block",
-        justifyContent: "flex-start",
-        paddingTop: '5px'
+        justifyContent: "center",
+        paddingTop: '25px'
     }
      
 
@@ -40,7 +40,7 @@ const Thoughts = ({thought, addThought, delThought, handleUpdate, user, mystyle,
             
             <UpdateThoughts thought={thought} handleUpdate={handleUpdate} user={user} thoughtstyle={thoughtstyle} mystyle={mystyle}/>
             
-            {(isUser) && <button style={mystyle} onClick={handleDeleteClick}>Delete</button>}
+            {(isUser) && <button class="btn btn-outline-primary" style={mystyle} onClick={handleDeleteClick}>Delete</button>}
             </div>
 
         </div>

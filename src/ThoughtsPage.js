@@ -7,19 +7,28 @@ const ThoughtsPage = ({thought}) => {
     function handleLikes(){
         setLikes(likes + 1)
      }
-
-    
+     
+     const mystyle = {
+        color: "Black",
+        backgroundColor: "emrald",
+        padding: "10px",
+        fontFamily: "Arial",
+        textAlign: "center",
+        borderRadius: "15px",
+        borderollapse: "separate",
+        marginRight: "20px"
+      };
       const thoughtContainer = {
-        backgroundColor: "silver",
+        backgroundColor: "white",
         border: "1px solid #A9A9A9",
         gridColumnStart: 1,
         gridRowStart: 1,
         display: "block",
         justifyContent: "flex-start",
-        paddingTop: '5px'
+        paddingTop: '15px'
     }
     const titleStyle ={
-        color: "white",
+        color: "Black",
         fontFamily: "Bariol",
     }
     return (
@@ -28,7 +37,7 @@ const ThoughtsPage = ({thought}) => {
             <h2 style={titleStyle}>{thought.description}</h2>
             <img src={thought.image} alt={thought.description}></img>
             <div>
-            <button onClick={handleLikes}>{likes} likes</button>
+            <button class="btn btn-outline-primary" style={mystyle} onClick={handleLikes}>{likes} likes</button>
             </div>
             
         </div>

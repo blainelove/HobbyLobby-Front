@@ -13,13 +13,13 @@ const HobbyPage = ({ mystyle}) => {
     const id = params.id
 
    const contentContainer = {
-    backgroundColor: "grey",
+    backgroundColor: "AntiqueWhite",
     border: "15px solid #A9A9A9",
     gridColumnStart: 1,
     gridRowStart: 1,
     display: "block",
     justifyContent: "flex-start",
-    paddingTop: '5px'
+    paddingTop: '15px'
 }
 
     useEffect(()=>{
@@ -33,11 +33,11 @@ const HobbyPage = ({ mystyle}) => {
     
     
     const titleStyle ={
-        color: "white",
+        color: "Black",
         fontFamily: "Bariol",
     }
     const thoughtsPage = hobby && hobby.thoughts.map((thought) => 
-        {return <ThoughtsPage key= {thought.id} thought= {thought} titleStyle={titleStyle}/>})
+        {return <ThoughtsPage key= {thought.id} thought= {thought} description={thought.description} titleStyle={titleStyle}/>})
           
     
     
@@ -46,11 +46,14 @@ const HobbyPage = ({ mystyle}) => {
         setDisplay(!display)
     }
    
-  
+   
+        
+          
+        
     return (
-        
         <div style= {contentContainer}>
-        
+            
+   
         <h1 style={titleStyle}>{hobby && hobby.name}</h1>
        
         <h2 style={titleStyle}>{hobby && hobby.description}</h2> 
@@ -58,9 +61,9 @@ const HobbyPage = ({ mystyle}) => {
         <div>
             
             {display ? (
-            <button style={mystyle} onClick={handleClick}>Hide Thoughts  </button>
+            <button class="btn btn-outline-primary"style={mystyle} onClick={handleClick}>Hide Thoughts  </button>
             ) : (
-            <button style={mystyle} onClick={handleClick} >Show Thoughts</button>
+            <button class="btn btn-outline-primary"style={mystyle} onClick={handleClick} >Show Thoughts</button>
             )}
             <div>
             {(display) && (thoughtsPage)}
@@ -68,8 +71,9 @@ const HobbyPage = ({ mystyle}) => {
             
           
           
+            </div>
         </div>
-    </div>
+    
     )
 }
 

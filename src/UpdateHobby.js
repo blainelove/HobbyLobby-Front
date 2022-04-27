@@ -79,7 +79,7 @@ const UpdateHobby = ({updateHobby, hobby, mystyle}) => {
         >
         </input>
 
-        <button style={mystyle} type='submit'>Update</button>
+        <button class="btn btn-outline-primary" type='submit'>Update</button>
      </form>
     )
 }

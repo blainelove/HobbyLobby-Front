@@ -64,7 +64,7 @@ const AddThoughts = ({addThought, hobbies, mystyle}) => {
       {ggggHobbies}
       </select>
     
-      <button style={mystyle} type="submit">submit</button>
+      <button class="btn btn-outline-primary" style={mystyle} type="submit">submit</button>
        
         </form>  
         

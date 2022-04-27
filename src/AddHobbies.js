@@ -57,7 +57,7 @@ const AddHobbies = ({setHobbies, mystyle}) => {
         onChange={handleChange}
       ></input>
     
-      <button style={mystyle} type="submit">submit</button>
+      <button class="btn btn-outline-primary" style={mystyle} type="submit">submit</button>
     </form>  
     )
 }
