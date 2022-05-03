@@ -43,20 +43,44 @@ function App() {
   setHobbies(allHobbies) 
  }
  const mystyle = {
-  color: "Black",
-  backgroundColor: "emrald",
+  color: "rgb(173, 252, 146)",
+  backgroundColor: "rgb(14, 14, 82)",
   padding: "10px",
-  fontFamily: "Georgia",
+  fontFamily: "optima, serif",
   textAlign: "center",
   borderRadius: "15px",
   borderollapse: "separate",
   marginRight: "20px"
 };
 const titleStyle = {
-  color: "Black",
-  backgroundColor: "AntiqueWhite",
-  padding: "50px",
-  fontFamily: "Lucida Handwriting",
+  color: "f0e0e52",
+  backgroundColor: "rgb(218, 255, 237)",
+  borderRadius: "15px",
+  paddingTop: "40px",
+
+  paddingBottom: "40px",
+  fontFamily: "optima, serif",
+  textAlign: "center"
+
+};
+const titleStyle3 = {
+  color: "f0e0e52",
+  backgroundColor: "rgb(218, 255, 237)",
+
+  borderRadius: "15px",
+  paddingTop: "50px",
+  paddingRight: "600px",
+  paddingLeft: "475px",
+  paddingBottom: "50px",
+  fontFamily: "optima, serif",
+  textAlign: "center"
+
+};
+const titleStyle2 = {
+  color: "f0e0e52",
+  backgroundColor: "rgb(218, 255, 237)",
+ 
+  fontFamily: "Helvetica sansSerif",
   textAlign: "center"
 
 };
@@ -85,14 +109,15 @@ const formStyle = {
 }
   return (
     <BrowserRouter>
-    <div  className="App">
+    <div  className="App" backgroundColor="rgb(112, 108, 97)" >
       
-      <h1 style={titleStyle} >Hobby Lobby</h1>
-      <div backgroundColor="gold" padding="10px">
-      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRU82CREucDD3h9JGYWkd192lAWsHgD8TGPA&usqp=CAU"align="Center"></img>
+  
+      <div style={titleStyle}>
+      <img Align = "center" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRU82CREucDD3h9JGYWkd192lAWsHgD8TGPA&usqp=CAU" style={titleStyle}></img>
       </div>
-      <div margin="10px" >
-      <NavLink to="/container" padding="10px">
+      <div style={titleStyle2}>
+        
+      <NavLink to="/container" padding="10px" backgroundColor="rgb(218, 255, 237)">
        
         <button type="button" btn class="btn-outline-primary" border-radius="12px"  style={mystyle}>
           All Hobbies
@@ -111,6 +136,7 @@ const formStyle = {
           Add Hobby
         </button>
       </NavLink>
+      
       </div>
       
       <div>
@@ -128,13 +154,13 @@ const formStyle = {
         </Route>
         <Route path="/addthought">
           <div style = {formStyle}>
-            <h2>Add Your Thoughts</h2>
+            <h2 style={mystyle}>Add Your Thoughts</h2>
           <AddThoughts addThought={addThought} hobbies={hobbies} mystyle={mystyle}/>
           </div>
         </Route>
         <Route path="/addhobbies">
         <div style = {formStyle}>
-          <h2>Add Your Hobbies</h2>
+          <h2 style={mystyle}>Add Your Hobbies</h2>
           <AddHobbies setHobbies= {setHobbies} mystyle={mystyle}/>
         </div>
         </Route>

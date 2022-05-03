@@ -9,11 +9,11 @@ const Thoughts = ({thought, addThought, delThought, handleUpdate, user, mystyle,
         color: "black",
         backgroundColor: "red",
         padding: "10px",
-        fontFamily: "Arial",
+        fontFamily: "optima, serif",
         textAlign: "center"
       };
       const thoughtContainer = {
-        backgroundColor: "white",
+        backgroundColor: "f7ef81",
         border: "1px solid #A9A9A9",
         gridColumnStart: 1,
         gridRowStart: 1,

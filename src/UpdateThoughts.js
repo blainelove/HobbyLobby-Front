@@ -44,6 +44,7 @@ const UpdateThoughts = ({thought, handleUpdate, user, thoughtstyle, mystyle}) =>
       }
 
     return (
+      <div backgroundColor="f7ef81">
         <form onSubmit={handleAUpdate} onReset={resetForm}>
         <div padding="10px">
         <button class="btn btn-outline-primary" style ={mystyle} onClick={handleLikes}> {likes} likes </button>
@@ -72,6 +73,7 @@ const UpdateThoughts = ({thought, handleUpdate, user, thoughtstyle, mystyle}) =>
 
         <button class="btn btn-outline-primary" style ={mystyle} type='submit'>Update</button>
      </form>
+    </div>
     )
 }
 

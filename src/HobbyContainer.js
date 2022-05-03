@@ -11,7 +11,8 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
     const isUser = hobby.user_id === user
     const titleStyle ={
         color: "Black",
-        fontFamily: "Bariol",
+        padding: "15px",
+        fontFamily: "optima, serif",
     }
 
     const thoughts = hobby.thoughts.map((thought) => {
@@ -20,8 +21,9 @@ const Hobby = ({hobby, delHobby, handleUpdate, updateHobby, addThought, delThoug
     
 
    const contentContainer = {
-    backgroundColor: "AntiqueWhite",
-    border: "15px solid #A9A9A9",
+    color: "rgb(173, 252, 146)",
+    backgroundColor: "rgb(14, 14, 82",
+    border: "15px solid #f0f6f6",
     gridColumnStart: 1,
     gridRowStart: 1,
     display: "block",
@@ -47,40 +49,39 @@ function handleFormToogle(){
     }
     const link = `/container/${hobby.id}`
     return (
-        <div style= {contentContainer}>
         
-        <h1 style={titleStyle}>{hobby.name}</h1>
+        <div backgroundColor="rgb(14, 14, 82)">
+            
+        <h1 style={titleStyle} >{hobby.name} </h1>
        
         <h2 style={titleStyle}>{hobby.description}</h2>
-        <img src={hobby.image} ></img>
-        <p>
-            <Link class="btn btn-outline-primary"style={mystyle}to= {link}>Show Page</Link>
-        </p>
-        <div>
-            
-            {display ? (
-            <button class="btn btn-outline-primary"style={mystyle} onClick={handleClick}>Hide Thoughts  </button>
-            ) : (
-            <button class="btn btn-outline-primary"style={mystyle} onClick={handleClick} >Show Thoughts</button>
-            )}
-            {(display) && (thoughts)}
-            <div>
-            
+        {(isUser) && <button class="bbtn btn-outline-primary"style={mystyle} onClick={handleDeleteClick}>Delete Hobby</button>}
+        {(isUser) && (displayForm) && <UpdateHobby handleUpdate={handleUpdate} hobby={hobby} updateHobby={updateHobby} mystyle={mystyle}/>}
+        
             {(isUser) && (displayForm) ? (
             <button class="btn btn-outline-primary"style={mystyle} onClick={handleFormToogle} >Hide Form</button>
             ) : (
             <button class="bbtn btn-outline-primary" style={mystyle}onClick={handleFormToogle} >Update Hobby</button>
             )}
-          
-          
-            {(isUser) && (displayForm) && <UpdateHobby handleUpdate={handleUpdate} hobby={hobby} updateHobby={updateHobby} mystyle={mystyle}/>}
-            </div>
+        
+        <img src={hobby.image}  style={mystyle}></img>
+        
+            <Link class="btn btn-outline-primary" style={mystyle}to = {link} padding="10px">Show Page</Link>
+       
+        
             
-        </div>
-       {(isUser) && <button class="bbtn btn-outline-primary"style={mystyle} onClick={handleDeleteClick}>Delete</button>}
+            {display ? (
+            <button class="btn btn-outline-primary"style={mystyle}  marginLeft= "50px" onClick={handleClick}>Hide Thoughts  </button>
+            ) : (
+            <button class="btn btn-outline-primary"style={mystyle} marginLeft = "50px"  onClick={handleClick} >Show Thoughts</button>
+            )}
+            {(display) && (thoughts)}
+            
+       
+       
         
-        
-    </div>
+       </div>
+    
     )
 }
 
